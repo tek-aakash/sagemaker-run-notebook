@@ -46,13 +46,14 @@ data_files_spec = [
 
 def runPackLabextension():
     if (lab_path / "package.json").is_file():
-        run(["jlpm", "build:labextension"], cwd=str(lab_path))
+        pass
+        # run(["jlpm", "build:labextension"], cwd=str(lab_path))
 
 
 pack_labext = command_for_func(runPackLabextension)
 
 cmdclass = create_cmdclass("pack_labext", data_files_spec=data_files_spec)
-cmdclass["pack_labext"] = pack_labext
+# cmdclass["pack_labext"] = pack_labext
 cmdclass.pop("develop")
 
 with open("README.md", "r") as fh:
