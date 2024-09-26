@@ -52,7 +52,8 @@ def runPackLabextension():
 
 pack_labext = command_for_func(runPackLabextension)
 
-cmdclass = create_cmdclass("pack_labext", data_files_spec=data_files_spec)
+cmdclass = create_cmdclass(data_files_spec=data_files_spec)
+# cmdclass = create_cmdclass("pack_labext", data_files_spec=data_files_spec)
 # cmdclass["pack_labext"] = pack_labext
 cmdclass.pop("develop")
 
