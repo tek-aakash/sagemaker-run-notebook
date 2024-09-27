@@ -46,15 +46,15 @@ data_files_spec = [
 
 def runPackLabextension():
     if (lab_path / "package.json").is_file():
-        pass
-        # run(["jlpm", "build:labextension"], cwd=str(lab_path))
+        # pass
+        run(["jlpm", "build:labextension"], cwd=str(lab_path))
 
 
 pack_labext = command_for_func(runPackLabextension)
 
-cmdclass = create_cmdclass(data_files_spec=data_files_spec)
-# cmdclass = create_cmdclass("pack_labext", data_files_spec=data_files_spec)
-# cmdclass["pack_labext"] = pack_labext
+# cmdclass = create_cmdclass(data_files_spec=data_files_spec)
+cmdclass = create_cmdclass("pack_labext", data_files_spec=data_files_spec)
+cmdclass["pack_labext"] = pack_labext
 cmdclass.pop("develop")
 
 with open("README.md", "r") as fh:
@@ -79,11 +79,13 @@ setuptools.setup(
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
+        # "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Framework :: Jupyter",
     ],
     python_requires=">=3.6",
