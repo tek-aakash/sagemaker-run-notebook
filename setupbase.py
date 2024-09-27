@@ -602,7 +602,8 @@ def _compile_pattern(pat, ignore_case=True):
         res = res_str.encode("ISO-8859-1")
     else:
         res = _translate_glob(pat)
-    flags = re.IGNORECASE if ignore_case else 0
+    # flags = re.IGNORECASE if ignore_case else 0
+    flags = re.IGNORECASE | re.MULTILINE | re.DOTALL if ignore_case else re.MULTILINE | re.DOTALL
     return re.compile(res, flags=flags).match
 
 
@@ -630,7 +631,8 @@ def _translate_glob(pat):
         translated_parts.append(_translate_glob_part(part))
     os_sep_class = "[%s]" % re.escape(SEPARATORS)
     res = _join_translated(translated_parts, os_sep_class)
-    return "{res}\\Z(?ms)".format(res=res)
+    return res
+    # return "{res}\\Z(?ms)".format(res=res)
 
 
 def _join_translated(translated_parts, os_sep_class):
