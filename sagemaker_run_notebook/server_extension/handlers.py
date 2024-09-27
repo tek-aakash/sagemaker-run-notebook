@@ -27,7 +27,8 @@ import boto3
 import botocore.exceptions
 import sagemaker_run_notebook as run
 
-from notebook.utils import url_path_join as ujoin, url2path
+# from notebook.utils import url_path_join as ujoin, url2path
+from jupyter_server.utils import url_path_join as ujoin, url2path
 from notebook.base.handlers import APIHandler
 
 
