@@ -29,7 +29,8 @@ import sagemaker_run_notebook as run
 
 # from notebook.utils import url_path_join as ujoin, url2path
 from jupyter_server.utils import url_path_join as ujoin, url2path
-from notebook.base.handlers import APIHandler
+from jupyter_server.base.handlers import APIHandler
+# from notebook.base.handlers import APIHandler
 
 
 def convert_times(o):
